@@ -61,10 +61,9 @@ export default function App() {
   function CardMsg() {
     try {
       const display = chatData.map((i, index) =>
-        <div className="m-2 mb-5 w-1/2 h-14 flex justify-start items-center" key={index} onClick={() => deleteMsg(i.id)}>
+        <div className="m-2 mb-5 w-1/2 h-14 flex justify-start items-center max-[700px]:w-full" key={index} onClick={() => deleteMsg(i.id)}>
           <div className="w-[10%] h-full rounded-full">
             <img src={i.photoURL} alt="foto user" className='rounded-full' />
-
           </div>
           <div className="w-[80%] h-[90%] ml-5 overflow-auto">
             <p>{i.pesan}</p>

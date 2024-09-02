@@ -6,6 +6,8 @@ import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 
 import chat2 from './assets/img/chat2.png'
 import chat3 from './assets/img/chat3.png'
+import user from './assets/user.svg'
+
 import { addDoc, collection, onSnapshot, orderBy, query, Timestamp } from 'firebase/firestore'
 
 
@@ -37,7 +39,8 @@ export default function App() {
       const display = chatData.map((i, index) =>
         <div className="m-2 mb-5 w-1/2 h-14 flex justify-start items-center" key={index}>
           <div className="w-[10%] h-full rounded-full">
-            <img className='rounded-full' src="https://lh3.googleusercontent.com/a/ACg8ocI5LtnfyDbxH5X7rpO3zx45q7-VoAMINUxFbnvl_ycughljq7rE=s96-c" alt="foto user" />
+            <img src={i.photoURL} alt="foto user" className='rounded-full' />
+
           </div>
           <div className="w-[80%] h-[90%] ml-5 overflow-auto">
             <p>{i.pesan}</p>
@@ -153,9 +156,8 @@ export default function App() {
           <div className="w-6/7 h-[300px] mb-10 mt-5 border overflow-auto">
 
             {/* Message */}
-              <CardMsg/>
+            <CardMsg />
             {/* Message */}
-
           </div>
           <p className='text-center'><small>Made By <a href="https://radya.fun" target='_blank'>Radya</a></small></p>
         </div>

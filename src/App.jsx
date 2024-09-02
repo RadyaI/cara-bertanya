@@ -61,7 +61,7 @@ export default function App() {
   function CardMsg() {
     try {
       const display = chatData.map((i, index) =>
-        <div className="m-2 mb-5 w-1/2 h-14 flex justify-start items-center max-[700px]:w-full" key={index} onClick={() => deleteMsg(i.id)}>
+        <div className="hidescrollbar m-2 mb-5 w-1/2 h-14 flex justify-start items-center max-[700px]:w-full" key={index} onClick={() => deleteMsg(i.id)}>
           <div className="w-[10%] h-full rounded-full">
             <img src={i.photoURL} alt="foto user" className='rounded-full' />
           </div>
@@ -176,7 +176,7 @@ export default function App() {
           <p className='text-[red]'>{alert}</p>
           {isLoggedIn && (<input type="text" placeholder='Pesanmu...' value={chat} onKeyUp={(e) => sendMsg(e)} onChange={(e) => setChat(e.target.value)} className='max-[700px]:w-full outline-none w-1/2 py-2 px-3 text-primary bg-text' />)}
           {!isLoggedIn && (<p>Login <span className='text-secondary cursor-pointer' onClick={() => login()}>disini</span> kalau mau komen.</p>)}
-          <div className="w-6/7 h-[300px] mb-10 mt-5 border overflow-auto">
+          <div className="w-6/7 h-[300px] mb-10 mt-5 border overflow-y-auto overflow-x-hidden">
 
             {/* Message */}
             <CardMsg />

@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
+import swal from 'sweetalert'
 
 import { db, auth } from './firebase'
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
+import { doc, addDoc, collection, deleteDoc, onSnapshot, orderBy, query, Timestamp } from 'firebase/firestore'
 
 import chat2 from './assets/img/chat2.png'
 import chat3 from './assets/img/chat3.png'
 import user from './assets/user.svg'
 
-import { addDoc, collection, onSnapshot, orderBy, query, Timestamp } from 'firebase/firestore'
 
 
 export default function App() {
@@ -34,10 +35,33 @@ export default function App() {
     }
   }
 
+  async function deleteMsg(id) {
+    try {
+      if (isLoggedIn) {
+        if (JSON.parse(Cookies.get('loginData')).email === "radyaiftikhar@gmail.com") {
+          const alert = await swal({
+            icon: 'warning',
+            title: 'Hapus Message Ini?',
+            buttons: ['Tidak', 'Iya']
+          })
+
+          if (alert) {
+            const msgRef = doc(db, 'caraBertanyaMSG', id)
+            await deleteDoc(msgRef)
+          }
+        } else {
+          console.log('Anda bukan admin')
+        }
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   function CardMsg() {
     try {
       const display = chatData.map((i, index) =>
-        <div className="m-2 mb-5 w-1/2 h-14 flex justify-start items-center" key={index}>
+        <div className="m-2 mb-5 w-1/2 h-14 flex justify-start items-center" key={index} onClick={() => deleteMsg(i.id)}>
           <div className="w-[10%] h-full rounded-full">
             <img src={i.photoURL} alt="foto user" className='rounded-full' />
 

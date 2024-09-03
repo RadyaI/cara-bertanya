@@ -140,7 +140,7 @@ export default function App() {
           <img src={chat2} alt="foto1" className="mt-5 rounded-lg" />
           <p className='mt-5'>Hhhhhhhhhhhh</p>
           <p className='mt-2'>Kebanyakan orang yang mau bertanya kenapa harus macet macet seperti: </p>
-          <p className='mt-2 w-fit px-3 bg-text text-primary'><b>Foo: </b>Halo mau tanya dong...</p>
+          <p className='mt-2 w-fit px-3 bg-text text-primary'><b>Foo: </b>Halooo</p>
           <p className='mt-2 w-fit px-3 bg-text text-primary'><b>Bar: </b>Iya kenapa?</p>
           <p className='mt-2 w-fit px-3 bg-text text-primary'><b>Foo: </b>Mau tanya dong...</p>
           <p className='mt-2 w-fit px-3 bg-text text-primary'><b>Bar: </b>Tanya apa?</p>
